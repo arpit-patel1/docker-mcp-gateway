@@ -1,0 +1,17 @@
+services:
+  gateway:
+    image: docker/mcp-gateway
+    command:
+      - --secrets=/secrets/.env
+      - --transport=streaming
+      - --port=8811
+    ports:
+      - "8811:8811"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.env:/secrets/.env:ro
+    networks:
+      - mcp-network
+networks:
+  mcp-network:
+    driver: bridge
