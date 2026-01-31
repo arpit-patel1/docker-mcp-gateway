@@ -2,7 +2,7 @@ services:
   gateway:
     image: docker/mcp-gateway
     command:
-      - --servers=youtube_transcript
+      - --servers=youtube_transcript,playwright
       - --secrets=/secrets/.env
       - --transport=streaming
       - --port=8811
